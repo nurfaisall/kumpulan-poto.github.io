@@ -1,26 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="output.css">
-</head>
-<body>
-    hello world
-    <div class="text-red-700">hello world</div>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body>
+    <div class="flex flex-wrap" id="kumpulanfoto">
+      <!-- <div
+        class="photo-collections flex justify-content items-center overflow-hidden"
+      >
+        <div class="bg-black w-full h-[90%] m-2 rounded-md hover:rounded-xl  flex justify-content items-center overflow-hidden hover:scale-95 transition-all duration-1000">
+          <img src="img/wibu1.jpg" alt="" class="hover:scale-110 hover:rotate-1 transition-all duration-1000" />
+        </div>
+      </div> -->
+    </div>
+    <div class="container">
+      <div class="popup-image">
+        <span>&times;</span>
+        <img src="img/wibu1.jpg" alt="" />
+      </div>
+    </div>
 
+    <script src="script.js" type="module"></script>
     <script>
-        for( i = 1; i < 19; i++) {
-            var potoWibu = document.createElement("img");
-            potoWibu.classList.add("h-[200px]");
-            potoWibu.classList.add("w-[100px]");
-            potoWibu.src = `img/wibu${i}.jpg`;
-            document.body.appendChild(potoWibu);
-            console.log(i);
-        }
+
+      const kumpulanfoto = document.getElementById("kumpulanfoto");
+
+      for (i = 1; i < 19; i++) {
+        //border photo
+        let border = document.createElement("div");
+        border.setAttribute("id", `${i}`);
+        border.setAttribute(
+          "class",
+          "photo-collections flex justify-content items-center overflow-hidden"
+        );
+        kumpulanfoto.appendChild(border);
+        //border photo END
+
+        // append border photo
+        let borderIn = document.createElement("div");
+        borderIn.setAttribute("id", `borderfoto${i}`);
+        borderIn.setAttribute(
+          "class",
+          "w-full h-[90%] m-2 rounded-md hover:rounded-xl  flex justify-content items-center overflow-hidden hover:scale-95 transition-all duration-1000"
+        );
+        let borderTarget = document.getElementById(i);
+        borderTarget.appendChild(borderIn);
+
+        //poto
+        let borderTargetIn = document.getElementById(`borderfoto${i}`);
+        var potoWibu = document.createElement("img");
+        potoWibu.setAttribute(
+          "class",
+          "hover:scale-110 hover:rotate-1 transition-all duration-1000"
+        );
+        potoWibu.src = `img/wibu${i}.jpg`;
+        borderTargetIn.appendChild(potoWibu);
+        console.log(i);
+      }
+      let test1 = document
+        .querySelectorAll("#kumpulanfoto div div img")
+        .forEach((image) => {
+          image.onclick = () => {
+            document.querySelector(".popup-image").style.display = "block";
+            let test = (document.querySelector(".popup-image img").src =
+              image.getAttribute("src"));
+          };
+        });
+
+      document.querySelector(".popup-image span").onclick = () => {
+        document.querySelector(".popup-image").style.display = "none";
+        console.log("succes");
+      };
     </script>
-</body>
+  </body>
 </html>

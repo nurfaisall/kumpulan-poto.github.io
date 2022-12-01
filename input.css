@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.photo-collections {
+    @apply w-[50%] md:w-[33%] lg:w-[20%] h-[150px];
+}
+
+.popup-image{
+    @apply fixed top-0 left-0 h-full w-full z-[100];
+    background: rgba(0, 0, 0, .9);
+    display: none;
+}
+
+.popup-image span{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+    z-index: 101;
+
+}
+
+.popup-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    width: 750px;
+    object-fit: cover;
+
+}
