@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="output.css">
+</head>
+<body>
+    hello world
+    <div class="text-red-700">hello world</div>
+
+    <script>
+        for( i = 1; i < 19; i++) {
+            var potoWibu = document.createElement("img");
+            potoWibu.classList.add("h-[200px]");
+            potoWibu.classList.add("w-[100px]");
+            potoWibu.src = `img/wibu${i}.jpg`;
+            document.body.appendChild(potoWibu);
+            console.log(i);
+        }
+    </script>
+</body>
+</html>
